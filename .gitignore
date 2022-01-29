@@ -14,3 +14,5 @@ Procfile
 *.ppk
 publickey
 .env
+app.py
+__init__.py

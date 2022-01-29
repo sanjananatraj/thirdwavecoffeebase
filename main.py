@@ -22,6 +22,7 @@ from flask_cors import CORS
 from waitress import serve
 import pymysql
 
+
 from decouple import config
 
 db_user = os.environ.get('CLOUD_SQL_USERNAME')
@@ -69,10 +70,14 @@ class Roasters(Resource):
     :return: Roaster, 200 HTTP status code
     """
     if os.environ.get('GAE_ENV') == 'standard':
-    # If deployed, use the local socket interface for accessing Cloud SQL
-      unix_socket = '/cloudsql/{}'.format(db_connection_name)
-      cnx = pymysql.connect(user=db_user, password=db_password,
-                            unix_socket=unix_socket, db=db_name)
+        db_user = os.environ.get('CLOUD_SQL_USERNAME')
+        db_password = os.environ.get('CLOUD_SQL_PASSWORD')
+        db_name = os.environ.get('CLOUD_SQL_DATABASE_NAME')
+        db_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')    
+        # If deployed, use the local socket interface for accessing Cloud SQL
+        unix_socket = '/cloudsql/{}'.format(db_connection_name)
+        cnx = pymysql.connect(user=db_user, password=db_password,
+                                unix_socket=unix_socket, db=db_name)
     else:
       print("running locally")
       db_user = config('CLOUD_SQL_USERNAME')
@@ -143,6 +148,10 @@ class RoastersByID(Resource):
   def get(self, id):
     if os.environ.get('GAE_ENV') == 'standard':
     # If deployed, use the local socket interface for accessing Cloud SQL
+      db_user = os.environ.get('CLOUD_SQL_USERNAME')
+      db_password = os.environ.get('CLOUD_SQL_PASSWORD')
+      db_name = os.environ.get('CLOUD_SQL_DATABASE_NAME')
+      db_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')   
       unix_socket = '/cloudsql/{}'.format(db_connection_name)
       cnx = pymysql.connect(user=db_user, password=db_password,
                             unix_socket=unix_socket, db=db_name)
@@ -202,6 +211,10 @@ class Location(Resource):
   def get(self, location=None):
 
     if os.environ.get('GAE_ENV') == 'standard':
+      db_user = os.environ.get('CLOUD_SQL_USERNAME')
+      db_password = os.environ.get('CLOUD_SQL_PASSWORD')
+      db_name = os.environ.get('CLOUD_SQL_DATABASE_NAME')
+      db_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')   
     # If deployed, use the local socket interface for accessing Cloud SQL
       unix_socket = '/cloudsql/{}'.format(db_connection_name)
       cnx = pymysql.connect(user=db_user, password=db_password,
@@ -270,6 +283,10 @@ class Coffee(Resource):
   def get(self, name):
     if os.environ.get('GAE_ENV') == 'standard':
     # If deployed, use the local socket interface for accessing Cloud SQL
+      db_user = os.environ.get('CLOUD_SQL_USERNAME')
+      db_password = os.environ.get('CLOUD_SQL_PASSWORD')
+      db_name = os.environ.get('CLOUD_SQL_DATABASE_NAME')
+      db_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')   
       unix_socket = '/cloudsql/{}'.format(db_connection_name)
       cnx = pymysql.connect(user=db_user, password=db_password,
                             unix_socket=unix_socket, db=db_name)
@@ -331,6 +348,10 @@ class CoffeeByID(Resource):
   def get(self, id):
     if os.environ.get('GAE_ENV') == 'standard':
     # If deployed, use the local socket interface for accessing Cloud SQL
+      db_user = os.environ.get('CLOUD_SQL_USERNAME')
+      db_password = os.environ.get('CLOUD_SQL_PASSWORD')
+      db_name = os.environ.get('CLOUD_SQL_DATABASE_NAME')
+      db_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')   
       unix_socket = '/cloudsql/{}'.format(db_connection_name)
       cnx = pymysql.connect(user=db_user, password=db_password,
                             unix_socket=unix_socket, db=db_name)
@@ -393,6 +414,10 @@ class Origin(Resource):
   def get(self, origin=None):
     if os.environ.get('GAE_ENV') == 'standard':
     # If deployed, use the local socket interface for accessing Cloud SQL
+      db_user = os.environ.get('CLOUD_SQL_USERNAME')
+      db_password = os.environ.get('CLOUD_SQL_PASSWORD')
+      db_name = os.environ.get('CLOUD_SQL_DATABASE_NAME')
+      db_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')   
       unix_socket = '/cloudsql/{}'.format(db_connection_name)
       cnx = pymysql.connect(user=db_user, password=db_password,
                             unix_socket=unix_socket, db=db_name)
