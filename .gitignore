@@ -13,4 +13,4 @@ test.py
 .env
 app.py
 __init__.py
-app.yaml
+*.yaml
