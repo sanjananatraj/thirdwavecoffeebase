@@ -10,9 +10,7 @@ venv/
 cert/
 dbconfig.py
 test.py
-Procfile
-*.ppk
-publickey
 .env
 app.py
 __init__.py
+app.yaml
