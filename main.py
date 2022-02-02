@@ -50,6 +50,24 @@ def coverpage():
 def favicon():
   return redirect(url_for('static', filename='favicon.ico'))
 
+@app.route("/_404.md")
+def notfound():
+  return redirect(url_for('static', filename='_404.md'))
+
+@app.route("/credits.md")
+def credits():
+  return redirect(url_for('static', filename='credits.md'))
+
+@app.route("/_sidebar.md")
+def sidebar():
+  return redirect(url_for('static', filename='_sidebar.md'))
+
+@app.route("/techstack.md")
+def techstack():
+  return redirect(url_for('static', filename='techstack.md'))
+
+
+
 @app.route('/')
 def main():
     return render_template('index.html')

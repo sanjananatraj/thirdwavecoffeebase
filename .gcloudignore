@@ -17,7 +17,6 @@
 __pycache__/
 # Ignored by the build system
 /setup.cfg
-cacert.pem
 __pycache__/
 lib/
 *.manifest
@@ -28,9 +27,7 @@ venv/
 cert/
 dbconfig.py
 test.py
-Procfile
 *.ppk
-publickey
 .env
 app.py
 __init__.py
