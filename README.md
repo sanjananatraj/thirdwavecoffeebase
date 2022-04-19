@@ -1,4 +1,9 @@
-# thirdwavecoffeebase
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/9789770/164104799-471eaaa4-6620-44e3-bce4-8e5f05932c6f.png" width="200" />
+</p>
+
+# Third Wave Coffee Base
+
 RESTful API about coffee listings from 50+ Northern Californian coffee roasters!
 
 This is a consumption-only API - only the HTTP GET method is available on resources. No authentication is required to access this API, but please help keep hosting costs down by limiting requests and caching data when possible.
